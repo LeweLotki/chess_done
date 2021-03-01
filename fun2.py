@@ -234,3 +234,16 @@ def cord_division(frame, list):
 pola = []
 for val in range(1, 9):
     pola.extend(["h"+str(val), "g"+str(val), "f"+str(val), "e"+str(val), "d"+str(val),"c"+str(val), "b"+str(val), "a"+str(val)])
+    
+
+start_position = { "a1":"Rook", "b1":"Knight", "c1":"Bishop", "d1":"Queen", "e1":"King", "f1":"Bishop", "g1":"Knight", "h1":"Rook",
+                   "a2":"Pawn", "b2":"Pawn", "c2":"Pawn", "d2":"Pawn", "e2":"Pawn", "f2":"Pawn", "g2":"Pawn", "h2":"Pawn",
+                   "a3":"None", "b3":"None", "c3":"None", "d3":"None", "e3":"None", "f3":"None", "g3":"None", "h3":"None",
+                   "a4":"None", "b4":"None", "c4":"None", "d4":"None", "e4":"None", "f4":"None", "g4":"None", "h4":"None",
+                   "a5":"None", "b5":"None", "c5":"None", "d5":"None", "e5":"None", "f5":"None", "g5":"None", "h5":"None",
+                   "a6":"None", "b6":"None", "c6":"None", "d6":"None", "e6":"None", "f6":"None", "g6":"None", "h6":"None",
+                   "a7":"Pawn", "b7":"Pawn", "c7":"Pawn", "d7":"Pawn", "e7":"Pawn", "f7":"Pawn", "g7":"Pawn", "h7":"Pawn",
+                   "a8":"Rook", "b8":"Knight", "c8":"Bishop", "d8":"Queen", "e8":"King", "f8":"Bishop", "g8":"Knight", "h8":"Rook"
+                   }
+                   
+                    
