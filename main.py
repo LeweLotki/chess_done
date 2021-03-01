@@ -16,6 +16,7 @@ chessboard_exist = False
 squares_list = []
 squares_cord_list = []
 cord = False
+start_position = fun.start_position
 
 while(cap.isOpened()): 
     m = 0
@@ -83,14 +84,23 @@ while(cap.isOpened()):
             for index in range(0, 64):
                 (ssim, diff) = structural_similarity(cv2.bilateralFilter(cv2.cvtColor(squares_list[index], cv2.COLOR_BGR2GRAY), 9, 75, 75), cv2.bilateralFilter(cv2.cvtColor(old_squares_list[index], cv2.COLOR_BGR2GRAY), 9, 75, 75), full=True)
                 ssim = round(100*(ssim), 3)
-                if ssim < 70:   
+                if ssim < 90:   
                     # print("index", index, "SSIM", ssim) # important line
                     index_list.append(index)
                     ssim_cord = True
             if not (ssim_cord):
                 print("no changes")
             if len(index_list) == 2:
-                print("pawn ", fun.pola[index_list[0]], " - ", fun.pola[index_list[1]])
+                if start_position[fun.pola[index_list[0]]]!="None":
+                    print(start_position[fun.pola[index_list[0]]]," ", fun.pola[index_list[0]], " - ", fun.pola[index_list[1]])
+                    start_position[fun.pola[index_list[1]]] = start_position[fun.pola[index_list[0]]]
+                    start_position[fun.pola[index_list[0]]] = "None"
+                else:
+                    print(start_position[fun.pola[index_list[1]]]," ", fun.pola[index_list[1]], " - ", fun.pola[index_list[0]])
+                    start_position[fun.pola[index_list[0]]] = start_position[fun.pola[index_list[1]]]
+                    start_position[fun.pola[index_list[1]]] = "None"
+            else:
+                print("changes: ",len(index_list))
         if cv2.waitKey(25) & 0xFF == ord('q'): 
             break
 
